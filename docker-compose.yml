@@ -4,7 +4,7 @@ services:
     image: postgres:latest
 
     ports:
-      - "8888:8888"
+      - "5432:5432"
 
     restart: always
 
