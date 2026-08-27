@@ -32,12 +32,24 @@ public class Task {
     @Column(name  = "priority", nullable = false)
     private TaskPriority priority;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_list_id")
+    private TaskList taskList;
+
 
     @Column(name = "created", nullable = false)
     private LocalDateTime created;
 
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
+
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 
 
     public Task() {
