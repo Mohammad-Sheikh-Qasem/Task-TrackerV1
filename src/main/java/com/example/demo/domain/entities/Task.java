@@ -141,4 +141,19 @@ public class Task {
     public int hashCode() {
         return Objects.hash(id, title, description, dueData, status, priority, taskList, created, updated);
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "created=" + created +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", dueData=" + dueData +
+                ", status=" + status +
+                ", priority=" + priority +
+                ", taskList=" + taskList +
+                ", updated=" + updated +
+                '}';
+    }
 }
