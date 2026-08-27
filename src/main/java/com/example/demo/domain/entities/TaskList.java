@@ -13,4 +13,9 @@ public class TaskList {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id",updatable = false, nullable = false)
     private UUID id;
+
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
 }
