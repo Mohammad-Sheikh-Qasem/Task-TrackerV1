@@ -105,4 +105,16 @@ public class TaskList {
     public int hashCode() {
         return Objects.hash(id, title, description, tasks, created, updated);
     }
+
+    @Override
+    public String toString() {
+        return "TaskList{" +
+                "created=" + created +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", tasks=" + tasks +
+                ", updated=" + updated +
+                '}';
+    }
 }
