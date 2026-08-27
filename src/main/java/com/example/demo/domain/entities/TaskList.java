@@ -37,7 +37,7 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(LocalDateTime created, String description, UUID id, List<Task> tasks, String title, LocalDateTime updated) {
+    public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created, LocalDateTime updated) {
         this.created = created;
         this.description = description;
         this.id = id;
