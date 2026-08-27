@@ -3,6 +3,7 @@ package com.example.demo.domain.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -20,4 +21,7 @@ public class Task {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "due_date")
+    private LocalDateTime dueData;
 }
