@@ -1,9 +1,7 @@
 package com.example.demo.domain.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
@@ -12,5 +10,6 @@ import java.util.UUID;
 public class Task {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 }
