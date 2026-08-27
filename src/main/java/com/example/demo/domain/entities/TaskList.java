@@ -1,9 +1,9 @@
 package com.example.demo.domain.entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cache;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -22,6 +22,9 @@ public class TaskList {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "taskList")
+    private List<Task> tasks;
 
     @Column(name = "created", nullable = false)
     private LocalDateTime created;
