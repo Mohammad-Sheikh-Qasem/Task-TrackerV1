@@ -43,116 +43,18 @@ public class Task {
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
 
-    public TaskList getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
-    }
-
-
     public Task() {
     }
 
-    public Task(UUID id, String title, String description, LocalDateTime dueData, TaskPriority priority, TaskStatus status, LocalDateTime created, LocalDateTime updated) {
+    public Task(LocalDateTime created, String description, LocalDateTime dueData, UUID id, TaskPriority priority, TaskStatus status, TaskList taskList, String title, LocalDateTime updated) {
         this.created = created;
         this.description = description;
         this.dueData = dueData;
         this.id = id;
         this.priority = priority;
         this.status = status;
+        this.taskList = taskList;
         this.title = title;
         this.updated = updated;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDateTime getDueData() {
-        return dueData;
-    }
-
-    public void setDueData(LocalDateTime dueData) {
-        this.dueData = dueData;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public TaskPriority getPriority() {
-        return priority;
-    }
-
-    public void setPriority(TaskPriority priority) {
-        this.priority = priority;
-    }
-
-    public TaskStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(TaskStatus status) {
-        this.status = status;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public LocalDateTime getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(LocalDateTime updated) {
-        this.updated = updated;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(dueData, task.dueData) && status == task.status && priority == task.priority && Objects.equals(created, task.created) && Objects.equals(updated, task.updated);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, description, dueData, status, priority, created, updated);
-    }
-
-    @Override
-    public String toString() {
-        return "Task{" +
-                "created=" + created +
-                ", id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", dueData=" + dueData +
-                ", status=" + status +
-                ", priority=" + priority +
-                ", updated=" + updated +
-                '}';
     }
 }
