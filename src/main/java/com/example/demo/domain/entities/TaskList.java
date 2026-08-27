@@ -3,6 +3,7 @@ package com.example.demo.domain.entities;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Cache;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -21,5 +22,8 @@ public class TaskList {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "created", nullable = false)
+    private LocalDateTime created;
 
 }
