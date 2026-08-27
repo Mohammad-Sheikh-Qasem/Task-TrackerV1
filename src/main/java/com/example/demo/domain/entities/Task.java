@@ -24,4 +24,9 @@ public class Task {
 
     @Column(name = "due_date")
     private LocalDateTime dueData;
+
+    @Column(name = "status", nullable = false)
+    private TaskStatus status;
+
+
 }
