@@ -43,7 +43,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(LocalDateTime created, String description, LocalDateTime dueData, UUID id, TaskPriority priority, TaskStatus status, String title, LocalDateTime updated) {
+    public Task(UUID id, String title, String description, LocalDateTime dueData, TaskPriority priority, TaskStatus status, LocalDateTime created, LocalDateTime updated) {
         this.created = created;
         this.description = description;
         this.dueData = dueData;
