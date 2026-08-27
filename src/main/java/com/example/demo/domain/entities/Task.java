@@ -28,5 +28,6 @@ public class Task {
     @Column(name = "status", nullable = false)
     private TaskStatus status;
 
-
+    @Column(name  = "priority", nullable = false)
+    private TaskPriority priority;
 }
