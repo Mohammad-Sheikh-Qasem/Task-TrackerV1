@@ -30,4 +30,8 @@ public class Task {
 
     @Column(name  = "priority", nullable = false)
     private TaskPriority priority;
+
+
+    @Column(name = "created", nullable = false)
+    private LocalDateTime created;
 }
