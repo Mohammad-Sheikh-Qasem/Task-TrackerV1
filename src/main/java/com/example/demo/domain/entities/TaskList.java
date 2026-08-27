@@ -32,4 +32,16 @@ public class TaskList {
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
 
+
+    public TaskList() {
+    }
+
+    public TaskList(LocalDateTime created, String description, UUID id, List<Task> tasks, String title, LocalDateTime updated) {
+        this.created = created;
+        this.description = description;
+        this.id = id;
+        this.tasks = tasks;
+        this.title = title;
+        this.updated = updated;
+    }
 }
