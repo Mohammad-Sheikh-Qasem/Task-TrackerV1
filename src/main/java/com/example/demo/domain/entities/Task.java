@@ -4,6 +4,7 @@ package com.example.demo.domain.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -115,5 +116,17 @@ public class Task {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(id, task.id) && Objects.equals(title, task.title) && Objects.equals(description, task.description) && Objects.equals(dueData, task.dueData) && status == task.status && priority == task.priority && Objects.equals(created, task.created) && Objects.equals(updated, task.updated);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, dueData, status, priority, created, updated);
     }
 }
