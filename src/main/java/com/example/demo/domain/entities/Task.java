@@ -37,4 +37,19 @@ public class Task {
 
     @Column(name = "updated", nullable = false)
     private LocalDateTime updated;
+
+
+    public Task() {
+    }
+
+    public Task(LocalDateTime created, String description, LocalDateTime dueData, UUID id, TaskPriority priority, TaskStatus status, String title, LocalDateTime updated) {
+        this.created = created;
+        this.description = description;
+        this.dueData = dueData;
+        this.id = id;
+        this.priority = priority;
+        this.status = status;
+        this.title = title;
+        this.updated = updated;
+    }
 }
