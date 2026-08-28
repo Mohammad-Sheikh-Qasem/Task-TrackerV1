@@ -1,5 +1,6 @@
 package com.example.demo.domain.dto;
 
+import com.example.demo.domain.entities.TaskPriority;
 import com.example.demo.domain.entities.TaskStatus;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,8 @@ public record TaskDto(
         String title,
         String description,
         LocalDateTime dueDate,
-        TaskStatus status
+        TaskStatus status,
+        TaskPriority priority
 
 
 ) {
