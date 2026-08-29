@@ -1,11 +1,14 @@
 package com.example.demo.mappers.impl;
 
 import com.example.demo.domain.dto.TaskListDto;
+import com.example.demo.domain.entities.Task;
 import com.example.demo.domain.entities.TaskList;
+import com.example.demo.domain.entities.TaskStatus;
 import com.example.demo.mappers.TaskListMapper;
 import com.example.demo.mappers.TaskMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -34,8 +37,34 @@ public class TaskListMapperImpl implements TaskListMapper {
         );
     }
 
+    private Double calculateTaskListProgress(List<Task> tasks) {
+        if(null == tasks){
+            return null;
+        }
+
+        long closedTaskCount = tasks.stream().
+                filter(task -> TaskStatus.CLOSED == task.getStatus())
+                .count();
+
+        return (double)closedTaskCount / tasks.size();
+
+
+    }
+
     @Override
     public TaskListDto toDto(TaskList taskList) {
-        return null;
+        return new TaskListDto(
+                taskList.getId(),
+                taskList.getTitle(),
+                taskList.getDescription(),
+                Optional.ofNullable(taskList.getTasks())
+                        .map(List::size)
+                        .orElse(0),
+                calculateTaskListProgress(taskList.getTasks()),
+                Optional.ofNullable(taskList.getTasks())
+                        .map(tasks -> tasks.stream().map(taskMapper::toDto).toList()
+                        ).orElse(null)
+
+        );
     }
 }
