@@ -26,6 +26,9 @@ public class TaskListServiceImpl implements TaskListService {
         if(null != taskList.getId()){
             throw new IllegalArgumentException("Task list already has an ID!");
         }
+        if(null == taskList.getTitle() || taskList.getTitle().isBlank()) {
+            throw new IllegalArgumentException("Task list title must be present!");
+        }
         return null;
     }
 }
