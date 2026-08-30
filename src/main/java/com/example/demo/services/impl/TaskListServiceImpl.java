@@ -5,6 +5,8 @@ import com.example.demo.repositories.TaskListRepository;
 import com.example.demo.services.TaskListService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -29,6 +31,16 @@ public class TaskListServiceImpl implements TaskListService {
         if(null == taskList.getTitle() || taskList.getTitle().isBlank()) {
             throw new IllegalArgumentException("Task list title must be present!");
         }
-        return null;
+
+        LocalDateTime now = LocalDateTime.now();
+        return taskListRepository.save(new TaskList(
+                null,
+                taskList.getTitle(),
+                taskList.getDescription(),
+                null,
+                now,
+                now
+
+        ));
     }
 }
