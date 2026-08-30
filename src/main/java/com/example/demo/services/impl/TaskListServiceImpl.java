@@ -20,4 +20,9 @@ public class TaskListServiceImpl implements TaskListService {
     public List<TaskList> listTaskLists() {
         return taskListRepository.findAll();
     }
+
+    @Override
+    public TaskList createTaskList(TaskList taskList) {
+        return null;
+    }
 }
