@@ -3,9 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.domain.dto.TaskListDto;
 import com.example.demo.mappers.TaskListMapper;
 import com.example.demo.services.TaskListService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,11 @@ public class TaskListController {
                 .stream()
                 .map(taskListMapper::toDto)
                 .toList();
+
+    }
+
+    @PostMapping
+    public TaskListDto createTaskList(@RequestBody TaskListDto taskListDto) {
 
     }
 }
