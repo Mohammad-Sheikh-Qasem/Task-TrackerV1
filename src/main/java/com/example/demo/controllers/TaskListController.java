@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.dto.TaskListDto;
+import com.example.demo.domain.entities.TaskList;
 import com.example.demo.mappers.TaskListMapper;
 import com.example.demo.services.TaskListService;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,9 @@ public class TaskListController {
 
     @PostMapping
     public TaskListDto createTaskList(@RequestBody TaskListDto taskListDto) {
-
+        TaskList createdTaskList = taskListService.createTaskList(
+                taskListMapper.fromDto(taskListDto)
+        );
+        return taskListMapper.toDto(createdTaskList);
     }
 }
